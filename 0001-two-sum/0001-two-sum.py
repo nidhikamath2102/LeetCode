@@ -7,4 +7,3 @@ class Solution:
         for i,v in enumerate(nums):
             if target-v in arr and i!=arr[target-v]:
                 return [i, arr[target-v]]
-                
