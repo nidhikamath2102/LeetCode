@@ -1,11 +1,10 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        dict={}
-        for ch in strs:
-            key = tuple(sorted(ch))
-            if key in dict:
-                dict[key].append(ch)
+        grp={}
+        for n in strs:
+            ch=tuple(sorted(n))
+            if ch not in grp:
+                grp[ch] = [n]
             else:
-                dict[key] = [ch]
-        return list(dict.values())
-        
+                grp[ch].append(n)
+        return tuple(grp.values())
