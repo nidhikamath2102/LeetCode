@@ -1,15 +1,13 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        m,zc,answer=1,0,[]
+        pre,suf,answer=[1],[1],[]
+        for i in range(1, len(nums)):
+            pre.append(pre[-1]*nums[i-1])
 
-        for n in nums:
-            if n!=0: m*=n
-            else: zc+=1
+        for i in range(len(nums)-2,-1,-1):
+            suf.insert(0,suf[0]*nums[i+1])
+    
 
-        if zc>1: return [0]*len(nums)
-
-        for n in nums:
-            if zc==0: answer.append(m//n)
-            elif zc==1 and n!=0: answer.append(0)
-            elif zc==1 and n==0: answer.append(m)
+        for i in range(len(pre)):
+            answer.append(pre[i]*suf[i])
         return answer
