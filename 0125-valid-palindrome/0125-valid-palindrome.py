@@ -1,13 +1,16 @@
 import re
 class Solution:
+    def checkAlphaNumeric(self, c):
+        return ('0'<=c.lower()<='9' or 'a'<=c.lower()<='z')
+        
     def isPalindrome(self, s: str) -> bool:
         i,j=0,len(s)-1
         while i<=j:
-            while i<len(s)-1 and not ('0'<=s[i].lower()<='9' or 'a'<=s[i].lower()<='z'):
+            while i<len(s)-1 and not self.checkAlphaNumeric(s[i]):
                 i+=1
-            while j>0 and not ('0'<=s[j].lower()<='9' or 'a'<=s[j].lower()<='z'):
+            while j>0 and not self.checkAlphaNumeric(s[j]):
                 j-=1
-            if ('0'<=s[j].lower()<='9' or 'a'<=s[j].lower()<='z') and ('0'<=s[i].lower()<='9' or 'a'<=s[i].lower()<='z') and s[i].lower()!=s[j].lower(): return False
+            if i<=j and s[i].lower()!=s[j].lower(): return False
             i+=1
             j-=1
         return True
