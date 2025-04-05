@@ -1,7 +1,7 @@
 import re
 class Solution:
     def checkAlphaNumeric(self, c):
-        return ('0'<=c.lower()<='9' or 'a'<=c.lower()<='z')
+        return ('0'<=c<='9' or 'a'<=c<='z' or 'A'<=c<='Z')
 
     def isPalindrome(self, s: str) -> bool:
         i,j=0,len(s)-1
