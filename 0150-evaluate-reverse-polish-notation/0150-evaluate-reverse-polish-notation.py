@@ -5,12 +5,9 @@ class Solution:
             if ch not in {"+", "-", "*", "/"}: 
                 st.append(int(ch))
             else:
-                v1=st.pop()
-                if len(st)>0: v2=st.pop()
-                else: v2=0
-                if ch=="+": v=v2+v1
-                elif ch=="-": v=v2-v1
-                elif ch=="*": v=v2*v1
-                else: v=v2/v1
-                st.append(int(v))
+                v1,v2=st.pop(),st.pop()
+                if ch=="+": st.append(v1+v2)
+                elif ch=="-": st.append(v2-v1)
+                elif ch=="*": st.append(v1*v2)
+                else: st.append(int(v2/v1))
         return int(st[-1])
