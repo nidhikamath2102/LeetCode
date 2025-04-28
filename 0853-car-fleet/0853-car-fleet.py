@@ -4,8 +4,7 @@ class Solution:
         ps=list(zip(position,speed))
         ps.sort(reverse=True)
 
-        c=1
-        current=(target-ps[0][0])/ps[0][1]
+        c,current=1,(target-ps[0][0])/ps[0][1]
 
         for i in range(1, len(ps)):
             t = (target-ps[i][0])/ps[i][1]
