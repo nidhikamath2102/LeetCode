@@ -1,9 +1,10 @@
 import math
 class Solution:
-    def get_h(self, mid, piles):
+    def get_h(self, mid, piles, h):
         total_h=0
         for i in range(0,len(piles)):
             total_h+=math.ceil(piles[i]/mid)
+            if total_h>h: break
         return total_h
     
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
@@ -15,8 +16,8 @@ class Solution:
         min=-1
         while l<=r:
             mid=(l+r)//2
-            if self.get_h(mid,piles) <= h: 
+            if self.get_h(mid,piles,h) <= h: 
                 min=mid
                 r=mid-1
-            elif self.get_h(mid,piles) > h: l=mid+1
+            elif self.get_h(mid,piles,h) > h: l=mid+1
         return min
