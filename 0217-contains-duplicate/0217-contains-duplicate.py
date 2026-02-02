@@ -1,3 +1,7 @@
-class Solution(object):
-    def containsDuplicate(self, nums):
-        return len(nums) != len(set(nums))
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        dups = set()
+        for i in nums:
+            if i in dups: return True
+            dups.add(i)
+        return False
